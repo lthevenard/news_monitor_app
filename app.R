@@ -23,7 +23,7 @@ ui <- fluidPage(
     
     sidebarLayout(
         sidebarPanel(
-          h3(style = "line-height:150%; color:#051d45;", "Selecionar notícias"),
+          h3(style = "line-height:150%; color:#051d45;", "Filtrar notícias"),
           selectInput("source", "Fonte:", choices = sources, selected = sources[1]),
           selectInput("filter", "Opção:", choices = options, selected = options[1]),
           dateInput("cut_date", "Visualizar notícias a partir de:", value = min_date, min = min_date, max = max_date),
@@ -35,7 +35,10 @@ ui <- fluidPage(
           
           br(), hr(), br(), 
           HTML(ref_descriptions$first_date),
-          HTML(ref_descriptions$last_update)
+          HTML(ref_descriptions$last_update),
+          br(),
+          HTML("<p>Lucas Thevenard   |   <a href = 'https://github.com/lthevenard/news_monitor_app'>Github</a></p>"),
+          
         ),
 
         mainPanel(
