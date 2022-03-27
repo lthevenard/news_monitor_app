@@ -1,0 +1,13 @@
+name: news_monitor_app
+title: news_monitor_app
+username:
+account: lthevenard
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5942443
+bundleId: 5731455
+url: https://lthevenard.shinyapps.io/news_monitor_app/
+when: 1648344106.33726
+lastSyncTime: 1648344106.33728
+asMultiple: FALSE
+asStatic: FALSE
