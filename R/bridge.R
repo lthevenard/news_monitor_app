@@ -53,7 +53,14 @@ table_selection <- function(table, input_source, input_filter, input_date) {
   }
 }
 
-prepare_text <- function(text, title, url) {
+br_date <- function(date) {
+  dd <- as.character(date) %>% str_extract("\\d{2}$")
+  mm <- as.character(date) %>% str_extract("(?<=-)\\d{2}")
+  aaaa <- as.character(date) %>% str_extract("\\d{4}")
+  return(paste(dd, mm, aaaa, sep = "/"))
+}
+
+prepare_text <- function(text, title, url, agencia, date) {
   
   wrap_paragraph <- function(text) {
     return(
@@ -70,12 +77,22 @@ prepare_text <- function(text, title, url) {
     "<div style = 'font: Verdana;'>", paragraphs, "</div>", collapse = "</br></br>"
   )
   
+  agencia_ref <- paste0(
+    "<p style = 'color: #183d7a; font-size: 120%; line-height: 150%;'><b>",
+    agencia, "</b></p>"
+  )
+  
+  date_ref <- paste0(
+    "<p style = 'color: darkgray; line-height: 400%;'>",
+    br_date(date), "</p>"
+  )
+  
   link <- paste0(
     "<p><i>Para acessar a notícia no site da agência, <a href= '",
     url, "'>clique aqui</a>.</i></p>"
   )
   
-  return(paste0(h2(title), "</br>", link, hr(), "</br>", div))
+  return(paste0(h3(agencia, style = "color: #183d7a;"), h2(title), date_ref, link, hr(), "</br>", div))
 }
 
 table_selection_agencias <- function(tables, input_filter, input_date) {

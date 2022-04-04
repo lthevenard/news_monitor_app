@@ -93,12 +93,24 @@ server <- function(input, output, session) {
   get_news_texts <- eventReactive({input$go}, {
     id_selected <- input$id_selected %>% as.numeric()
     news_row <- bind_rows(news) %>% filter(id == id_selected)
-    return(list(article = news_row$article[[1]], title = news_row$title[[1]], url = news_row$url[[1]]))
+    return(list(
+      article = news_row$article[[1]], 
+      title = news_row$title[[1]], 
+      url = news_row$url[[1]],
+      agencia = news_row$agencia[[1]],
+      date = news_row$date[[1]]
+    ))
   })
   
   output$news_text <- renderUI({
     texts <- get_news_texts()
-    prepare_text(texts$article, texts$title, texts$url) %>% HTML()
+    prepare_text(
+      texts$article, 
+      texts$title, 
+      texts$url,
+      texts$agencia,
+      texts$date
+    ) %>% HTML()
   }) 
 }
 
