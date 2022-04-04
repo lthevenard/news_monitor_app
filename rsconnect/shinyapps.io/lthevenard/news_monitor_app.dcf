@@ -5,9 +5,9 @@ account: lthevenard
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5942443
-bundleId: 5731455
+bundleId: 5732725
 url: https://lthevenard.shinyapps.io/news_monitor_app/
-when: 1648344106.33726
-lastSyncTime: 1648344106.33728
+when: 1648404891.28785
+lastSyncTime: 1648404891.28787
 asMultiple: FALSE
 asStatic: FALSE
